@@ -110,13 +110,13 @@
   > 事件相关: onload,onerror
 - form
 
-```html
-<form action="/yyy" method="get/post" autocomplete="on">
-  <input type="text" />
-  <button type="submit">submit</button>
-</form>
-```
+  ```html
+  <form action="/yyy" method="get/post" autocomplete="on">
+    <input type="text" />
+    <button type="submit">submit</button>
+  </form>
+  ```
 
-> input 的 type: text/color/password/radio/checkbox/file
-> 事件: onchange onblur onfocus
-> 属性: name/value/required
+  > input 的 type: text/color/password/radio/checkbox/file
+  > 事件: onchange onblur onfocus
+  > 属性: name/value/required
