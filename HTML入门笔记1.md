@@ -28,10 +28,10 @@
 - title
 - meta
 
-```html
-<meta name="" content="" />
-<!-- name的可选属性有:charset, viewport, description, keywords, author-->
-```
+  ```html
+  <meta name="" content="" />
+  <!-- name的可选属性有:charset, viewport, description, keywords, author-->
+  ```
 
 - script
 - style
@@ -60,13 +60,14 @@
    > 就近原则
 6. ~~tabindex~~
 7. title
+
    > 出现省略时用于提供详细描述
 
-```css
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipse;
-```
+   ```css
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipse;
+   ```
 
 ## 内容标签
 
@@ -84,6 +85,11 @@ text-overflow: ellipse;
   > 换行
 - a
   > hypertext
+  ```html
+  <a href="" target=""></a>
+  <!-- href取值: //google.com  /a/b/index.html #xxx javascript:;  mailto:.com  tel:123324;-->
+  ```
+  > 作用: 跳转另一个网页或 anchor 伪协议
 - em
   > emphasis,强调语气
 - strong
@@ -94,3 +100,23 @@ text-overflow: ellipse;
   > 语义标签,无样式
 - blockquote
   > 代码块
+- table thead tbody tfoot tr td th
+  > 相关样式 border-collapse: collapse; border-spacing: 0;
+- img
+  > image,发送 get 请求
+  ```html
+  <img src="" alt="" />
+  ```
+  > 事件相关: onload,onerror
+- form
+
+```html
+<form action="/yyy" method="get/post" autocomplete="on">
+  <input type="text" />
+  <button type="submit">submit</button>
+</form>
+```
+
+> input 的 type: text/color/password/radio/checkbox/file
+> 事件: onchange onblur onfocus
+> 属性: name/value/required
