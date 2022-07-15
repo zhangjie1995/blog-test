@@ -27,12 +27,12 @@
 
 - title
 - meta
-  > name
-  1. charset
-  2. viewport
-  3. description
-  4. keywords
-  5. author
+
+```html
+<meta name="" content="" />
+<!-- name的可选属性有:charset, viewport, description, keywords, author-->
+```
+
 - script
 - style
 - link
@@ -60,7 +60,7 @@
    > 就近原则
 6. ~~tabindex~~
 7. title
-   > 出现省略时用于
+   > 出现省略时用于提供详细描述
 
 ```css
 white-space: nowrap;
