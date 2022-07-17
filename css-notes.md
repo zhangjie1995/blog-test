@@ -27,8 +27,9 @@ css2 用的最为广泛
 ## 盒模型
 
 浏览器引擎将元素表示为一个个矩形盒子 box<br>
-![盒模型](<https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model/boxmodel-(3).png>)
-box-sizing
+![盒模型](<https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model/boxmodel-(3).png>)<br>
+
+box-sizing(width,min-width-max-width 控制的范围)
 
 > border-box: content + padding + border
 > content-box: content
