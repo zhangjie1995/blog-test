@@ -1,12 +1,15 @@
 # http
 
 hypertext transfer protocol
+
 _TCP/IP 网络模型分层_
 
 ## 应用层
 
 规定传输数据的格式,比如 http 报文
+
 常见协议有: HTTP,FTP,Telnet,DNS,SMTP
+
 _terms_
 
 1. URL(uniform resource locator): http:域名/ip+端口+路径+参数+锚点(不会在 request 报文中)
@@ -18,7 +21,9 @@ _terms_
 ## 传输层
 
 协议:TCP UDP
+
 数据形式: TCP 报文(TCP 头部+HTTP 报文)...
+
 _terms_
 
 1. port
@@ -31,7 +36,9 @@ _terms_
 ## 网络层
 
 协议: IP
+
 数据形式: 网络包
+
 _terms_
 
 1. IP 地址: 对应现实中的地址
