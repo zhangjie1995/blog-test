@@ -272,9 +272,9 @@ transition
 属性: 控制属性 时长 过度方式 延迟
 过渡方式: linear | ease | step
 
-**demo**
+_demo_
 
-> 1. [跳动红心](https://jsbin.com/veyuvalahe/edit?html,css,output)
+[跳动红心](https://jsbin.com/veyuvalahe/edit?html,css,output)
 
 ## animation
 
@@ -294,5 +294,6 @@ animation: 时长 | 动画名 | 过渡方式 | 延迟 | 次数(infinite) | 方�
 }
 ```
 
-**demo**
+_demo_
+
 [跳动红心](https://jsbin.com/navetuyuye/edit?html,css,output)
