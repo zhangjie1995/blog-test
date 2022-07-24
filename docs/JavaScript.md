@@ -173,7 +173,7 @@ a > b || statement2;
 
 1. `var obj = {}`
 2. `var obj = new Object({})`
-3. `console.log({})`
+
 
 键命名时省略引号容易出错的地方
 
@@ -203,7 +203,7 @@ delete obj['name']
 delete obj.name //以上两种方式等价
 delete obj[name]
 'name' in obj // false
-obj.name == undefined //不能用这种方式来判断属性是否存在
+obj.name === undefined //不能用这种方式来判断属性是否存在
 ```
 #### read
 ```javascript
@@ -232,5 +232,4 @@ var obj1 = {};
 obj1.__proto__ = obj;//方式1
 var obj1 = Object.create(obj);//方式2
 //构造函数  ~待完整~
-
 ```
