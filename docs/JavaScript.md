@@ -1,6 +1,6 @@
 # Javascript
-
-## 历史
+## 由来
+### 历史
 
 - 发明人: 布兰登(网景->firefox->brave)
 - 诞生: 95 网景公司
@@ -16,7 +16,7 @@
 
   Chrome 16 年 份额 62%
 
-## 设计思路[1]
+### 设计思路[1]
 
 1. 借鉴 C 语言的基本语法
 2. 借鉴 Java 语言的数据类型和内存管理
@@ -49,7 +49,13 @@ window
 3. heap
    > 堆,存放对象
 
-## 原型链
+## 原型
+
+原型存储对象的共有属性
+
+对象的[__proto__]属性存储原型地址
+
+所有对象都有原型,根对象的原型地址为null
 
 ## 基本语法
 
@@ -191,5 +197,40 @@ Object.keys(obj) //['10', '255', '0.3']
 
 ### CRUD
 
-#### D
- 
+#### delete
+```javascript
+delete obj['name']
+delete obj.name //以上两种方式等价
+delete obj[name]
+'name' in obj // false
+obj.name == undefined //不能用这种方式来判断属性是否存在
+```
+#### read
+```javascript
+Object.keys(obj)
+Object.values(obj)
+Object.entries(obj)
+console.dir(obj)
+
+//判断属性是否为自身属性
+'name' in obj //当该属性是共有属性时或自身属性时返回true
+obj.hasOwnProperty('name')//当该属性为自身属性时返回true
+
+```
+
+#### update-create
+
+1. 直接赋值
+2. 批量赋值
+
+`Object.assign(obj,{p1:1,p2:2})`
+
+3. 修改原型
+```javascript
+var obj = {name: 'zhangsan'};
+var obj1 = {};
+obj1.__proto__ = obj;//方式1
+var obj1 = Object.create(obj);//方式2
+//构造函数  ~待完整~
+
+```
