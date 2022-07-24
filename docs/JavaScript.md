@@ -233,3 +233,160 @@ obj1.__proto__ = obj;//方式1
 var obj1 = Object.create(obj);//方式2
 //构造函数  ~待完整~
 ```
+
+
+
+
+### new关键词的作用
+```javascript
+//为了节省内存,将相似对象的共有属性抽离,写进一个新的对象
+//新建对象时,使用构造函数将新对象__proto__指向共有属性对象
+function createSquare(width){
+  let obj = Object.create(createSquare.prototype)
+  obj.width = width
+  return obj
+}
+createSquare.prototype = {
+  getArea(){
+    return this.width * this.width
+  },
+  constructor: createSquare
+}
+let obj = createSquare(3)// 'getArea' in obj -> true
+</hr>
+//使用new关键词可用简化以上步骤
+function Square(width){
+  this.width = width
+}
+//此时若直接赋对象会覆盖Square.prototype的其他属性比如constructor
+Square.prototype.getArea = function(){
+  return this.width * this.width
+}
+let obj1 = new Square(3)
+
+```
+
+总结 new X()所做的事情
+
+1. 创建对象
+2. 新对象原型指向X.prototype
+3. 新对象作传进X()函数,形参为this,并使用构造函数为新对象添加自身属性
+4. 返回this
+
+> 对象.__proto__ === 构造函数.prototype
+
+## 对象分类
+
+### 数组对象
+
+#### 定义
+
+```javascript
+let arr = [1,2]
+let arr1 = new Array(1,2)
+let arr2 = new Array(3)
+```
+#### 其他对象转换成数组 
+```javascript
+let str = '1,2,3';
+str.split(',')
+Array.from('123')//类数组对象 下标+length
+```
+#### 自身属性
+```javascript
+Array.keys(arr) //['0','1','length']
+```
+
+#### Array.prototype的属性
+
+1. shift/unshift
+2. push/pop
+3. join(',')
+4. concat(obj)
+5. slice(startIndex,[endIndex])
+
+#### CRUD
+```javascript
+//delete
+delete arr[0]//length不变,下标不变
+arr.length = 0//全部元素删除
+arr.shift()//length+下标 变化 pop
+arr.splice(start,[deleteCount],[addItems])
+//遍历
+//方式1
+for(let i=0; i<arr.length; i++){
+  console.log(arr[i])
+}
+//方式2
+arr.forEach((value,index)=>{
+  console.log(`${index}:${value}`)// 0:1  1:2 2:3
+})
+//查询
+
+arr.indexOf(value)//返回value值的下标,没有返回-1
+arr.find((x)=>{
+  return x%2 == 0 //返回第一个偶数值
+})
+arr.findIndex
+
+// update
+arr[3] = 100 //当3>=arr.length时,会更新arr.length
+//方式1 push unshift
+//方式2 splice
+arr.splice(index,0,items)
+// 排序
+arr.reverse()
+'abcde'.split('').reverse().join('') //'edcba'
+arr.sort((a,b)=>{
+  return b-a
+})
+```
+#### 根据arr中元素创建一个新数组
+
+对数组成员进行某种操作
+```javascript
+//n->n
+arr.map(item=>item*item)
+//n-> lesser
+arr.filter(item=>item%2==0)
+//n->1
+reduce((previousValue,currentValue)=>{},initialValue)
+arr.reduce((sum,item)=>{return sum+item},0)
+arr.reduce((result,item)=>{return result.concat[item*item]},[])
+arr.reduce((result,item)=>{return item%2==0?result.concat[item]:result},[])
+```
+### 函数对象
+#### 定义
+```javascript
+let f = new Function(para1, para2, statement)
+function f1(para1,para2){
+  statement
+}
+let f2 = function(para1,para2){
+  statement
+}
+
+```
+#### Function.prototype的属性
+
+#### window.Function的构造函数
+
+任何函数的构造函数都是Function,因为函数定义方式等价于new Function()
+
+构造函数的终点是Function,原型的终点是null
+```javascript
+window.Function.__proto__.constructor === window.Function // true
+```
+
+## class
+```javascript
+class Square{
+  constructor(width){
+    this.width = width
+  }
+  getArea(){
+    return Math.pow(this.width, 2)
+  }
+}
+
+```
