@@ -375,24 +375,61 @@ let f4 = (x,y)=> x*y
 #### 作用域
 全局变量 局部变量 闭包(函数+词法环境) 词法环境
 
+#### 函数的执行时机
+```javascript
+let i = 0
+for(i = 0; i<6; i++){
+  setTimeout(()=>{
+    console.log(i)
+  },0)
+}
 
-#### ~terms~
-- 形参 实参
+```
+
+以上代码的执行结果为`6 6 6 6 6 6`
+原因是: 函数在调用刚开始,会自动创建一个新的词法环境以存储这个调用的局部变量和参数;
+
+而箭头函数的外部词法环境为setTimeout的内部词法环境,setTimeout的外部词法环境为for代码块,for代码块的外部此法环境为全局;
+
+箭头函数在for循环执行完毕之后运行,根据词法环境找到全局变量i,此时的i为6.所以输出`6`
+
+以上代码打印 `0 1 2 3 4 5`的方法,让该箭头函数的词法环境的某个链定义局部变量i
+```javascript
+//方法1
+let i = 0
+for(let i=0; i<6; i++){
+  setTimeout(()=>{
+    console.log(i)
+  },0)
+}
+//方法2
+let i = 0
+for(i=0; i<6; i++){
+  !function(i){
+    setTimeout(()=>{
+        console.log(i)
+      },0)
+  }(i)
+}
+
+```
+
+####  形参 实参
 ```javascript
 function add(){
   var x = arguments[0]
   var y = arguments[1]
 }
 ```
-- 返回值
+#### 返回值
 
 任何函数都有返回值,默认返回undefined
 
-- 调用栈
-- 申明提升
-- arguments
+#### 调用栈
+#### 申明提升
+#### arguments
 类数组, 可通过Array.from()转换为数组.
-- this
+#### this
 在定义函数时调用者的地址未知,那函数如何拿到调用者的属性,=>调用者在调用时将自己的地址传给此函数.
 
 js中通过this这一隐藏的参数将调用者的地址传给调用的函数
@@ -401,7 +438,7 @@ js中通过this这一隐藏的参数将调用者的地址传给调用的函数
 ```javascript
 person.sayHi.call(person,[arguments])
 ```
-- 绑定this
+#### 绑定this
 ```javascript
 //bind
 function f1(a,b){
@@ -411,7 +448,7 @@ let obj = {name:'f2的固定调用者'}
 let f2 = f1.bind(obj)
 f2()//等价于 f1.call(obj)
 ```
-- 箭头函数
+#### 箭头函数
 没有arguments和this,this仅是普通变量
 
 #### Function.prototype的属性
