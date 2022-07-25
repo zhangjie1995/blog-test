@@ -275,29 +275,29 @@ let obj1 = new Square(3)
 
 > 对象.__proto__ === 构造函数.prototype
 
-## 对象分类
 
-### 数组对象
 
-#### 定义
+## 数组对象
+
+### 定义
 
 ```javascript
 let arr = [1,2]
 let arr1 = new Array(1,2)
 let arr2 = new Array(3)
 ```
-#### 其他对象转换成数组 
+### 其他对象转换成数组 
 ```javascript
 let str = '1,2,3';
 str.split(',')
 Array.from('123')//类数组对象 下标+length
 ```
-#### 自身属性
+### 自身属性
 ```javascript
 Array.keys(arr) //['0','1','length']
 ```
 
-#### Array.prototype的属性
+### Array.prototype的属性
 
 1. shift/unshift
 2. push/pop
@@ -305,7 +305,7 @@ Array.keys(arr) //['0','1','length']
 4. concat(obj)
 5. slice(startIndex,[endIndex])
 
-#### CRUD
+### CRUD
 ```javascript
 //delete
 delete arr[0]//length不变,下标不变
@@ -341,7 +341,7 @@ arr.sort((a,b)=>{
   return b-a
 })
 ```
-#### 根据arr中元素创建一个新数组
+### 根据arr中元素创建一个新数组
 
 对数组成员进行某种操作
 ```javascript
@@ -355,8 +355,8 @@ arr.reduce((sum,item)=>{return sum+item},0)
 arr.reduce((result,item)=>{return result.concat[item*item]},[])
 arr.reduce((result,item)=>{return item%2==0?result.concat[item]:result},[])
 ```
-### 函数对象
-#### 定义
+## 函数对象
+### 定义
 ```javascript
 let f = new Function(para1, para2, statement)
 function f1(para1,para2){
@@ -372,10 +372,10 @@ let f3 = function f(para){
 let f4 = (x,y)=> x*y
 
 ```
-#### 作用域
+### 作用域
 全局变量 局部变量 闭包(函数+词法环境) 词法环境
 
-#### 函数的执行时机
+### 函数的执行时机
 ```javascript
 let i = 0
 for(i = 0; i<6; i++){
@@ -414,22 +414,22 @@ for(i=0; i<6; i++){
 
 ```
 
-####  形参 实参
+###  形参 实参
 ```javascript
 function add(){
   var x = arguments[0]
   var y = arguments[1]
 }
 ```
-#### 返回值
+### 返回值
 
 任何函数都有返回值,默认返回undefined
 
-#### 调用栈
-#### 申明提升
-#### arguments
+### 调用栈
+### 申明提升
+### arguments
 类数组, 可通过Array.from()转换为数组.
-#### this
+### this
 在定义函数时调用者的地址未知,那函数如何拿到调用者的属性,=>调用者在调用时将自己的地址传给此函数.
 
 js中通过this这一隐藏的参数将调用者的地址传给调用的函数
@@ -438,7 +438,7 @@ js中通过this这一隐藏的参数将调用者的地址传给调用的函数
 ```javascript
 person.sayHi.call(person,[arguments])
 ```
-#### 绑定this
+### 绑定this
 ```javascript
 //bind
 function f1(a,b){
@@ -448,12 +448,12 @@ let obj = {name:'f2的固定调用者'}
 let f2 = f1.bind(obj)
 f2()//等价于 f1.call(obj)
 ```
-#### 箭头函数
+### 箭头函数
 没有arguments和this,this仅是普通变量
 
-#### Function.prototype的属性
+### Function.prototype的属性
 
-#### window.Function的构造函数
+### window.Function的构造函数
 
 任何函数的构造函数都是Function,因为函数定义方式等价于new Function()
 
@@ -461,7 +461,7 @@ f2()//等价于 f1.call(obj)
 ```javascript
 window.Function.__proto__.constructor === window.Function // true
 ```
-- 立即执行函数
+### 立即执行函数
 ```javascript
 !function(){
   var a = 3
