@@ -365,8 +365,55 @@ function f1(para1,para2){
 let f2 = function(para1,para2){
   statement
 }
+let f3 = function f(para){
+
+}//f的作用域仅在等号左边
+
+let f4 = (x,y)=> x*y
 
 ```
+#### 作用域
+全局变量 局部变量 闭包(函数+词法环境) 词法环境
+
+
+#### ~terms~
+- 形参 实参
+```javascript
+function add(){
+  var x = arguments[0]
+  var y = arguments[1]
+}
+```
+- 返回值
+
+任何函数都有返回值,默认返回undefined
+
+- 调用栈
+- 申明提升
+- arguments
+类数组, 可通过Array.from()转换为数组.
+- this
+在定义函数时调用者的地址未知,那函数如何拿到调用者的属性,=>调用者在调用时将自己的地址传给此函数.
+
+js中通过this这一隐藏的参数将调用者的地址传给调用的函数
+
+显示传参:
+```javascript
+person.sayHi.call(person,[arguments])
+```
+- 绑定this
+```javascript
+//bind
+function f1(a,b){
+  console.log(this,arguments[0],b)
+}
+let obj = {name:'f2的固定调用者'}
+let f2 = f1.bind(obj)
+f2()//等价于 f1.call(obj)
+```
+- 箭头函数
+没有arguments和this,this仅是普通变量
+
 #### Function.prototype的属性
 
 #### window.Function的构造函数
@@ -376,6 +423,13 @@ let f2 = function(para1,para2){
 构造函数的终点是Function,原型的终点是null
 ```javascript
 window.Function.__proto__.constructor === window.Function // true
+```
+- 立即执行函数
+```javascript
+!function(){
+  var a = 3
+  console.log(2)
+}()
 ```
 
 ## class
