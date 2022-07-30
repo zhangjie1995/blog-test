@@ -425,7 +425,15 @@ function add(){
 
 任何函数都有返回值,默认返回undefined
 
-### 调用栈
+### 调用栈(call stack)
+```javascript
+function a() {  
+    setTimeout(function() {alert(1)}, 0);  
+    alert(2);  
+}  
+a(); 
+```
+> setTimeout使得alert(1)加入到新的函数调用栈中,只有等待a()所在的调用栈所有函数执行完成后,alert(1)所在的调用栈才会被启用~
 ### 申明提升
 ### arguments
 类数组, 可通过Array.from()转换为数组.
@@ -481,3 +489,52 @@ class Square{
 }
 
 ```
+
+## 运算符
+### ==
+> 全部使用===
+> NaN !== NaN  
+### && ||
+```javascript
+console && console.log && console.log('hi')
+console?.log?.('hi')//可选链
+
+function add(n=0){
+  return n+1
+}
+add(null) //1  null/undefined==>n=0
+```
+### & | ~ >> << ^
+位运算符会消除小数
+```javascript
+console.log(~~6.83) //6
+console.log(6.83>>0) //6
+console.log(6.83|0)//6
+```
+位运算判断奇偶
+```javascript
+6 & 1 //0
+7 & 1 //1
+```
+位运算交换两个整数值
+```javascript
+a ^= b
+b ^= a
+a ^= b
+```
+
+### .运算符
+```javascript
+//封装Number String Boolean
+let a = 1
+a.xxx = 'test'
+console.log(a.xxx)//undefined
+```
+
+### void
+void 表达式或语句
+
+作用: 求值/执行语句 -> 返回 undefined
+
+### , 运算符
+返回最后一部分的值作为整个表达式的值
