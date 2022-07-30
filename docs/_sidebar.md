@@ -1,3 +1,5 @@
 - [html](HTML%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B01.md)
 - [css](css-notes.md)
 - [JavaScript](JavaScript.md)
+- [jQuery](jQurey.md)
+- [LeetCode](LeetCode.md)
