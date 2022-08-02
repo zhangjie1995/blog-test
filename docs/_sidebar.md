@@ -2,5 +2,5 @@
 - [css](css-notes.md)
 - [JavaScript](JavaScript.md)
 - [jQuery](jQurey.md)
-- [event](evnet.md)
+- [event](event.md)
 - [LeetCode](LeetCode.md)
